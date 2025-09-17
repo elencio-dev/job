@@ -1,13 +1,14 @@
+import Promotion from "~/promotion/promotion";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Sell Services" },
+    { name: "description", content: "Promote your services with ease!" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <Promotion />;
 }

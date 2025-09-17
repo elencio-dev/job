@@ -36,54 +36,21 @@ const languages: Language[] = [
   { name: "GraphQL", icon: <SiGraphql />, color: "text-pink-500" },
 ];
 
-interface Props {
-  selected: string | null;
-  setSelected: (lang: string) => void;
-}
 
-export default function LanguageCarousel({ selected, setSelected }: Props) {
-  const [offset, setOffset] = useState(0);
-  const requestRef = useRef<number | null>(null);
-
-  // largura total dos cards (ajuste conforme o padding/margem dos itens)
-  const itemWidth = 160; // aprox. largura de cada card
-  const totalWidth = languages.length * itemWidth;
-
-  useEffect(() => {
-    const animate = () => {
-      setOffset((prev) => {
-        const newOffset = prev - 0.4;
-        return Math.abs(newOffset) >= totalWidth ? 0 : newOffset;
-      });
-
-      requestRef.current = requestAnimationFrame(animate);
-    };
-
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, [totalWidth]);
-
+export default function LanguageCarousel() {
+  
   return (
-    <div className="relative w-full overflow-hidden py-10">
+    <div className="flex flex-col items-center">
       <div
-        className="flex gap-6"
-        style={{
-          transform: `translateX(${offset}px)`,
-          width: totalWidth * 2, // duplicar lista para efeito infinito
-        }}
+        className="flex flex-wrap items-center justify-center gap-8 "
       >
-        {[...languages, ...languages].map((lang, i) => (
+        {[...languages].map((lang, i) => (
           <div
             key={lang.name + i}
-            onClick={() => setSelected(lang.name)}
-            className={`flex flex-col items-center justify-center w-36 p-6 rounded-xl shadow-md cursor-pointer transition-transform duration-300
-              ${selected === lang.name ? "scale-110 ring-2 ring-yellow-400" : "hover:scale-105"}
-              bg-white`}
+            className="cursor-pointer flex flex-col items-center border-3 bg-gray-900 border-gray-700 rounded-lg p-4 hover:scale-110 transform transition duration-300"
           >
-            <div className={`text-5xl mb-3 ${lang.color}`}>{lang.icon}</div>
-            <p className="text-gray-800 font-semibold">{lang.name}</p>
+            <div className={`text-8xl mb-3 ${lang.color}`}>{lang.icon}</div>
+            <p className="text-gray-300 font-semibold">{lang.name}</p>
           </div>
         ))}
       </div>

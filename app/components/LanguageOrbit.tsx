@@ -15,17 +15,16 @@ interface Tech {
 const languagesAndMarkup: Tech[] = [
   { name: "Python", icon: <SiPython />, color: "text-yellow-400" },
   { name: "TypeScript", icon: <SiTypescript />, color: "text-blue-600" },
-  // { name: "Java", icon: <SiJava />, color: "text-red-600" },
   { name: "SQL", icon: <SiMysql />, color: "text-amber-600" },
   { name: "HTML5", icon: <SiHtml5 />, color: "text-orange-500" },
   { name: "CSS3", icon: <SiCss3 />, color: "text-blue-500" },
   { name: "GraphQL", icon: <SiGraphql />, color: "text-pink-500" },
 ];
 
-// 🔹 Frameworks, bibliotecas e ferramentas
+
 const frameworksAndTools: Tech[] = [
   { name: "React", icon: <SiReact />, color: "text-sky-400" },
-  { name: "Next.js", icon: <SiNextdotjs />, color: "text-gray-300 dark:text-white" },
+  { name: "Next.js", icon: <SiNextdotjs />, color: "text dark:text-white" },
   { name: "Angular", icon: <SiAngular />, color: "text-red-600" },
   { name: "Vue.js", icon: <SiVuedotjs />, color: "text-green-400" },
   { name: "Node.js", icon: <SiNodedotjs />, color: "text-green-500" },
